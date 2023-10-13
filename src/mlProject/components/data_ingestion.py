@@ -18,7 +18,7 @@ class DataIngestion:
             )
             logger.info(F"{filename} download! with following info: \n{headers}")
         else:
-            logger.ingo(f"File already exists of size: {get_size(Path(self.config.local_data_file))}")
+            logger.info(f"File already exists of size: {get_size(Path(self.config.local_data_file))}")
 
     def extract_zip_file(self):
         """
@@ -30,4 +30,3 @@ class DataIngestion:
         os.makedirs(unzip_path, exist_ok=True)
         with zipfile.ZipFile(self.config.local_data_file, 'r') as zip_ref:
             zip_ref.extractall(unzip_path)
-
